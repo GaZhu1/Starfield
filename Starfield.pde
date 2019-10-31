@@ -1,20 +1,57 @@
-//your code here
+Particle bruh[];
+
 void setup()
 {
-	//your code here
+	size(600,600);
+	background(0);
+	frameRate(60);
+
+	bruh = new Particle[500];
+
+	for(int i=0;i<bruh.length;i++){
+
+			bruh[i]=new NormalParticle();
+	} 
 }
 void draw()
 {
-	//your code here
+	for(int i=0;i<bruh.length;i++){
+		System.out.println(bruh.length);
+		bruh[i].show();
+		bruh[i].move();
+	}
 }
-class Particle
+interface Particle
 {
-	//your code here
-}
 
-class OddballParticle //inherits from Particle
+	public void move();
+	public void show();
+
+}
+class NormalParticle implements Particle
 {
-	//your code here
+	double myX,myY,myAngle,mySpeed;
+
+	NormalParticle(){
+
+		myX=300;
+		myY=300;
+		myAngle=2*Math.PI*Math.random();
+		mySpeed=50*Math.random();
+
+	}
+	public void move(){
+
+		myX=myX+Math.cos(myAngle)*mySpeed;
+		myY=myY+Math.sin(myAngle)*mySpeed;
+		myAngle+=.005;
+		
+	}
+	public void show(){
+
+		fill(255,0,0);
+	
+		ellipse((float)myX,(float)myY,5.0,5.0);
+
+	}
 }
-
-
