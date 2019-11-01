@@ -16,7 +16,6 @@ void setup()
 void draw()
 {
 	for(int i=0;i<bruh.length;i++){
-		System.out.println(bruh.length);
 		bruh[i].show();
 		bruh[i].move();
 	}
